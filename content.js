@@ -1,5 +1,5 @@
 function main () {
-  if (['staging', 'preview'].includes(document.querySelector('.head-ref').textContent)) {
+  if (['master', 'main', 'staging', 'preview'].includes(document.querySelector('.head-ref').textContent)) {
       // If merging from staging or preview (likely to master), do a merge commit
     document.querySelector('.merge-message details button[value=merge]').click()
   } else {
