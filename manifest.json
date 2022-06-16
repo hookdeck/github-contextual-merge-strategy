@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "GitHub Contextual Merge Strategy",
+  "version": "1.0.0",
+  "description": "Defines a contextual merge strategy on GitHub pull requests according to the source branch.",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/hookdeck/*/pull/*"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}
