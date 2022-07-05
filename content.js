@@ -36,7 +36,10 @@ function onPage () {
 // Best way I found to intercept single-page navigation
 new MutationObserver(() => {
   console.log('On page change')
-  onPage()
+
+  // Add some delay because the URL is usually updated a bit after the body
+  // and there's no reliable way to detect that
+  setTimeout(onPage, 200)
 }).observe(document.body, { childList: true })
 
 onPage()
