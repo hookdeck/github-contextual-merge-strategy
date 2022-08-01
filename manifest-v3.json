@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "GitHub Contextual Merge Strategy",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Defines a contextual merge strategy on GitHub pull requests according to the source branch.",
   "background": {
     "service_worker": "background.js"

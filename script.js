@@ -28,9 +28,13 @@ function main () {
   }
 
   const observer = new MutationObserver(() => {
-    observer.disconnect()
-    console.log('Merge message updated, running')
-    updateStrategy()
+    if (document.querySelector('.merge-message details')) {
+      observer.disconnect()
+      console.log('Merge message updated, running')
+      updateStrategy()
+    } else {
+      console.log('Merge message updated, not ready')
+    }
   })
 
   observer.observe(actions, { subtree: true, childList: true })
