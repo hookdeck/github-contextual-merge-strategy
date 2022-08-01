@@ -15,13 +15,35 @@ This is annoying because we usually squash feature branches into
 This extension prevents that by defaulting the merge strategy based on
 the branch we want to merge!
 
+## Customization
+
+By default the extension runs only on GitHub repos in the [Hookdeck organization](https://github.com/hookdeck)!
+
+This is probably not what you want, so you should configure the
+`permissions` in [`manifest.json`](manifest.json) accordingly, as well
+as the URL host and prefix in [`background.js`](background.js).
+
+This can be done with this simple script:
+
+```sh
+sed -i.old 's/hookdeck/your-github-org/g' manifest.json background.js
+rm manifest.json.old background.js.old
+```
+
 ## Installation
 
-In Chrome extensions page, enable *developer mode* to get the option to
-*load unpacked* extensions, and point it to this directory.
+Clone this repository:
+
+```sh
+git clone https://github.com/hookdeck/github-contextual-merge-strategy
+```
+
+In the Chrome extensions page `chrome://extensions`, enable *developer
+mode* to get the option to *load unpacked* extensions, and point it to
+this directory.
 
 In Firefox, the extension needs to be packaged as XPI and signed before
-being installed. It can be loaded from
+being installed permanently. It can be loaded from
 `about:debugging#/runtime/this-firefox` *load temporary add-on* but it
 won't persist across restarts.
 
