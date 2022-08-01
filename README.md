@@ -25,14 +25,15 @@ being installed. It can be loaded from
 `about:debugging#/runtime/this-firefox` *load temporary add-on* but it
 won't persist across restarts.
 
-To package and sign the extension, install the `web-ext` tool:
+To package and sign the extension, you need to setup the
+`AMO_JWT_ISSUER` and `AMO_JWT_SECRET` environment variables from
+[your credentials from the developer hub](https://addons.mozilla.org/developers/addon/api/key/),
+then run:
 
 ```sh
-npm install -g web-ext
-web-ext sign --api-key=$AMO_JWT_ISSUER --api-secret=$AMO_JWT_SECRET
+npm install
+npm run sign -- --api-key=$AMO_JWT_ISSUER --api-secret=$AMO_JWT_SECRET
 ```
-
-Where the environment variable come from [your credentials from the developer hub](https://addons.mozilla.org/developers/addon/api/key/).
 
 It will generate a XPI file that you can permanently add to your
 Firefox.
