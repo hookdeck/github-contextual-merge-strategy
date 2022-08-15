@@ -15,6 +15,9 @@ This is annoying because we usually squash feature branches into
 This extension prevents that by defaulting the merge strategy based on
 the branch we want to merge!
 
+See the full story and implementation details
+[this blog post](https://hookdeck.com/blog/post/building-chrome-extension-disable-squash-and-merge-github-branches).
+
 ## Customization
 
 By default the extension runs only on GitHub repos in the [Hookdeck organization](https://github.com/hookdeck)!
