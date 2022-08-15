@@ -20,6 +20,8 @@ See the full story and implementation details
 
 ## Customization
 
+### Organization
+
 By default the extension runs only on GitHub repos in the [Hookdeck organization](https://github.com/hookdeck)!
 
 This is probably not what you want, so you should configure the
@@ -33,9 +35,11 @@ sed -i.old 's/hookdeck/your-github-org/g' manifest.json background.js
 rm manifest.json.old background.js.old
 ```
 
-Also it forces merge commit on `master`, `main`, `staging` and
-`preview`, and defaults to squash & merge otherwise. If you want to
-tweak that, edit [`script.js`](script.js)!
+### Branches
+
+By default, it will select merge commit on `master`, `main`, `staging`
+and `preview`, and squash & merge on other branches. If you want to tweak
+that, edit [`script.js`](script.js)!
 
 ## Installation
 
@@ -45,9 +49,13 @@ Clone this repository:
 git clone https://github.com/hookdeck/github-contextual-merge-strategy
 ```
 
+### Chrome
+
 In the Chrome extensions page `chrome://extensions`, enable *developer
 mode* to get the option to *load unpacked* extensions, and point it to
 this directory.
+
+### Firefox
 
 In Firefox, the extension needs to be packaged as XPI and signed before
 being installed permanently. It can be loaded from
