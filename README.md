@@ -33,6 +33,10 @@ sed -i.old 's/hookdeck/your-github-org/g' manifest.json background.js
 rm manifest.json.old background.js.old
 ```
 
+Also it forces merge commit on `master`, `main`, `staging` and
+`preview`, and defaults to squash & merge otherwise. If you want to
+tweak that, edit [`script.js`](script.js)!
+
 ## Installation
 
 Clone this repository:
