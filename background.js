@@ -11,5 +11,5 @@ function logOnHistoryStateUpdated (details) {
 }
 
 chrome.webNavigation.onHistoryStateUpdated.addListener(logOnHistoryStateUpdated, {
-  url: [{ hostEquals: 'github.com', pathPrefix: '/hookdeck' }]
+  url: [{ hostEquals: 'github.com', pathPrefix: '/RemondisDigitalServices' }]
 })

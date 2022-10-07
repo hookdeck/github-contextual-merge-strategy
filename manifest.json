@@ -12,6 +12,6 @@
   "permissions": [
     "webNavigation",
     "tabs",
-    "https://github.com/hookdeck/*"
+    "https://github.com/RemondisDigitalServices/*"
   ]
 }
