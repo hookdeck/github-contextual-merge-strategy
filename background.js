@@ -5,11 +5,11 @@ function logOnHistoryStateUpdated (details) {
     return
   }
 
-  console.log(`Run script: ${details.url}`)
-  // chrome.scripting.executeScript({ target: { tabId: details.tabId }, files: ['script.js'] })
-  chrome.tabs.executeScript(details.tabId, { file: 'script.js' })
+  // console.log(`Run script: ${details.url}`)
+  chrome.scripting.executeScript({ target: { tabId: details.tabId }, files: ['script.js'] })
+  // chrome.tabs.executeScript(details.tabId, { file: 'script.js' })
 }
 
 chrome.webNavigation.onHistoryStateUpdated.addListener(logOnHistoryStateUpdated, {
-  url: [{ hostEquals: 'github.com', pathPrefix: '/hookdeck' }]
+  url: [{ hostEquals: 'github.com', pathPrefix: '/drata' }]
 })

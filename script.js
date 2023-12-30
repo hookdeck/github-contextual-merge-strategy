@@ -1,14 +1,21 @@
 /* global MutationObserver */
 
 function updateStrategy () {
-  if (['master', 'main', 'staging', 'preview'].includes(document.querySelector('.head-ref').textContent)) {
-    // If merging from staging or preview (likely to master), do a merge commit
-    console.log('Clicking merge')
+  const branch = document.querySelector('.head-ref').textContent;
+  if (branch.startsWith('release/')) {
+    // do a MERGE if the branch is a release branch
+    // console.log('ONLY merge')
     document.querySelector('.merge-message details button[value=merge]').click()
+    // hide the other buttons
+    document.querySelector('.merge-message details button[value=squash]').style.visibility = "hidden";
+    document.querySelector('.merge-message details button[value=rebase]').style.visibility = "hidden";
   } else {
     // Otherwise squash by default
-    console.log('Clicking squash')
+    // console.log('ONLY squash and merge')
     document.querySelector('.merge-message details button[value=squash]').click()
+    // hide the other buttons
+    document.querySelector('.merge-message details button[value=merge]').style.visibility = "hidden";
+    document.querySelector('.merge-message details button[value=rebase]').style.visibility = "hidden";
   }
 }
 
@@ -30,10 +37,10 @@ function main () {
   const observer = new MutationObserver(() => {
     if (document.querySelector('.merge-message details')) {
       observer.disconnect()
-      console.log('Merge message updated, running')
+      // console.log('Merge message updated, running')
       updateStrategy()
     } else {
-      console.log('Merge message updated, not ready')
+      // console.log('Merge message updated, not ready')
     }
   })
 

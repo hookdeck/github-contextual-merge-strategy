@@ -1,17 +1,16 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "GitHub Contextual Merge Strategy",
   "version": "2.0.1",
   "description": "Defines a contextual merge strategy on GitHub pull requests according to the source branch.",
   "background": {
-    "scripts": [
-      "background.js"
-    ],
-    "persistent": false
+    "service_worker": "background.js"
   },
   "permissions": [
     "webNavigation",
-    "tabs",
-    "https://github.com/hookdeck/*"
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://github.com/drata/*"
   ]
 }
